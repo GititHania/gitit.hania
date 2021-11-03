@@ -1,0 +1,25 @@
+﻿body
+{
+    background-color: beige;
+}
+
+label{
+    text-decoration: underline;
+}
+
+Form {
+    background-color: antiquewhite;
+    width: max-content;
+}
+
+#sibtn{
+    background-color:aqua;
+}
+
+#subbtn {
+    background-color: lightblue;
+}
+
+.suf {
+    color: deepskyblue;
+}
