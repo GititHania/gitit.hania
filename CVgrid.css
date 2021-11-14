@@ -1,0 +1,71 @@
+body {
+    background-color: rgb(234, 130, 248);
+    box-sizing      : border-box;
+    margin: 0%;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        'header header header'
+        'left main  right';
+    text-align-last: center;
+}
+
+#topNav {
+    grid-area       : header;
+    background-color: rgb(204, 86, 219);
+    margin-bottom   : 1%;
+}
+
+#PI {
+    grid-area: left;
+}
+
+#school {
+    grid-area: right;
+}
+
+#Pic {
+    grid-area: main;
+}
+
+label,
+input {
+    margin: 3%;
+}
+
+
+
+@media screen and (max-width: 992px) {
+    .grid-container {
+        display: grid;
+        grid-template-areas:
+            'header header'
+            'left  right'
+            'footer footer';
+        grid-gap: 10px;
+    }
+
+    #Pic {
+        grid-area    : footer;
+        align-content: center;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .grid-container {
+        display: grid;
+        grid-template-areas:
+            'header'
+            'left''right'
+            'footer ';
+    }
+
+    div {
+        width: 100%;
+    }
+
+
+}
