@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(234, 130, 248);
+    background-color: rgb(112, 44, 168);
     box-sizing      : border-box;
     margin: 0%;
 }
@@ -14,7 +14,7 @@ body {
 
 #topNav {
     grid-area       : header;
-    background-color: rgb(204, 86, 219);
+    background-color: rgb(121, 67, 165);
     margin-bottom   : 1%;
 }
 
@@ -69,3 +69,49 @@ input {
 
 
 }
+
+@keyframes glowing {
+    0% {
+      background-color: #e40623;
+      box-shadow: 0 0 3px #e40623;
+      color: e40623;
+    }
+    25% {
+      background-color: #e43206;
+      box-shadow: 0 0 15px #e43206;
+      color: e43206;
+    }
+    50% {
+        background-color: #e45706;
+        box-shadow: 0 0 25px #e45706;
+        color: #e45706;
+    }
+    75% {
+        background-color: #e47106;
+        box-shadow: 0 0 15px #e47106;
+        color: #e47106;
+    }
+    99% {
+      background-color: #e4bb06;
+      box-shadow: 0 0 3px #e4bb06;
+      color: e4bb06;
+      display: none;
+    }
+  }
+
+  @keyframes blinking {
+      0%{
+          color: #e40623;
+      }
+      100%{
+
+        color:#e45706
+      }
+  }
+
+
+  button {
+      animation-name: glowing;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+  }
