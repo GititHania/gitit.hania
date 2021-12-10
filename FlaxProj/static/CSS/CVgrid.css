@@ -29,6 +29,10 @@ body {
 #Pic {
     grid-area: main;
 }
+img{
+    object-fit: contain;
+    max-width: 50%;
+}
 
 label,
 input {

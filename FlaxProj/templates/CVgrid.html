@@ -2,17 +2,17 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="CVgrid.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'CSS/CVgrid.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MY CV</title>
-    <script src="CVgrid.js"></script>
+    <script src="{{ url_for('static', filename= 'JS/CVgrid.js') }}"></script>
 </head>
 
 <body>
     <div id="Container" class="grid-container">
         <div id="topNav">
             <h1 for="">My Information: </h1>
-            <button onclick="print_name_in_console()">Click Me</button>
+            <button onclick="click_btn()">Click Me</button>
         </div>
         
             <div id="PI" >
@@ -35,7 +35,7 @@
                 <input type="text"><br>
             </div>
             <div id="Pic" class="item4">
-                <img src="Girl.jpg" alt="Cartoon Girl">
+                <img src="{{ url_for('static', filename= 'Imgs/girl.png') }}" alt="Cartoon Girl">
             </div>
     </div>
 
