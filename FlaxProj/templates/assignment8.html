@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Hobbis{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+<div>
+    My hobbis are:
+    {%for hobby in ['Acting', 'Reading', 'Baking']%}
+    <li>{{hobby}}</li>
+    {%endfor%}
+    But my Favorite thing to do is: {{ ['Acting', 'Reading', 'Baking'] | random }} <br>
+    And I hate: {{ ['Cleaning', 'Sports', 'Taking Tests'] | random }} <br>
+    {% if 12 > time %}
+    Good Morning!
+    {%else %}
+    Have a Nice Day!
+    {%endif%}
+
+    {% include 'Contact.html' %}
+
+
+</div>
+{% endblock %}

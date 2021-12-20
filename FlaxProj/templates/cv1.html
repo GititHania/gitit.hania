@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="cv.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'CSS/cv.css') }}">
+    <script src="{{ url_for('static', filename= 'JS/cv.js') }}"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Your Own CV</title>
     <script src="cv.js"></script>
@@ -40,8 +41,7 @@
             </div>
 
             <div id="Pic" >
-                    <img src="Girl.jpg" alt="Cartoon Girl">
-                            
+                <img src="{{ url_for('static', filename= 'Imgs/Girl.jpg') }}" alt="Cartoon Girl">
             </div>
 
             <div class="footer">

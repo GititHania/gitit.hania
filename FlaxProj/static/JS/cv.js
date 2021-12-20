@@ -23,6 +23,6 @@ function check_validtion(){
 }
 
 function next(){
-    window.location.href = "cv2.html";
+    window.location.href = "/cv2";
 }
 
