@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Assig9{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+<div>
+    <h1>Search Users</h1>
+    <form action="" method="">
+        <label for="s-us">User Name</label>
+        <input type="text" name="s-us" id="s-us"><br>
+        <label for="s-em">User Email</label>
+        <input type="text" name="s-em" id="s-em">
+        <br>
+        <button type="submit">Search</button>
+    </form>
+
+    <br>
+    <div>
+        {%if usersList%}
+        {%for user in usersList%}
+        <li>
+            <span>Name: {{user['name']}}</span>
+            <span>,</span>
+            <span>Email: {{user['email']}}</span>
+        </li>
+        {%endfor%}
+        {%endif%}
+    </div>
+    {%if session.username%}
+    <h1> Hey There {{session.username}}</h1>
+    <button onclick='window.location.href = "/logout";'>LogOut</button>
+    {%else%}
+    <form action="" method="post">
+        <h1>Register</h1>
+        <label for="r-us">userName</label>
+        <input id="r-us" type="text" name="r-us" id="">
+        <label for="r-em">email</label>
+        <input id="r-em" type="text" name="r-em" id="">
+        <label for="r-pass">Password</label>
+        <input id="r-pass" type="password" name="r-pass" id="">
+        <button type="submit">Send</button>
+    </form>
+
+    {%endif%}
+
+</div>
+{% endblock %}

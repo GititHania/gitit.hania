@@ -13,6 +13,9 @@
         <div id="topNav">
             <h1 for="">My Information: </h1>
             <button onclick="click_btn()">Click Me</button>
+            {%if session.username%}
+            <h1> Hey There {{session.username}}</h1>
+            {%endif%}
         </div>
         
             <div id="PI" >

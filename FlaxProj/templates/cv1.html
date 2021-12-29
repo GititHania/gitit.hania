@@ -10,6 +10,9 @@
 </head>
 
 <body>
+    {%if session.username%}
+    <h1> Hey There {{session.username}}</h1>
+    {%endif%}
     <div class="grid-container">
         <div class="topNav">
             <h1 for="">Enter Information: </h1>

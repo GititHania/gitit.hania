@@ -12,11 +12,7 @@ Form {
     width: max-content;
 }
 
-#sibtn{
-    background-color:aqua;
-}
-
-#subbtn {
+button {
     background-color: lightblue;
 }
 

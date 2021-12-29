@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename= 'CSS/StyleEX3.css') }}">
 </head>
 <body>
+    {%if session.username%}
+    <h1> Hey There {{session.username}}</h1>
+    {%endif%}
     <h1> Sign Up </h1>
     <form id="sighUpF">
         <label for="FName" class="suf"> First Name </label>

@@ -5,6 +5,9 @@
 {% endblock %}
 {% block content %}
 <div>
+    {%if session.username%}
+    <h1> Hey There {{session.username}}</h1>
+    {%endif%}
     My hobbis are:
     {%for hobby in ['Acting', 'Reading', 'Baking']%}
     <li>{{hobby}}</li>
