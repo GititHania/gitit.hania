@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'ex10.css') }}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex10</title>
+</head>
+
+<body>
+    <h1>Forms</h1>
+    <div class="container">
+        <div class="inform">
+            {% if msg %}
+            <h5>{{msg}}</h5>
+            {% endif %}
+        </div>
+        <div class='inform' id="Delte">
+            {% include 'deletion_form.html' %}
+        </div>
+        <div class='inform' id="insert">
+            {% include 'insert_form.html' %}
+        </div>
+        <div class='inform' id="update">
+            {% include 'update_form.html' %}
+        </div>
+
+        <div class='inform' id="list">
+            {% with usersList=usersList %}
+            {% include 'list.html' %}
+            {% endwith %}
+        </div>
+    </div>
+
+</body>
+
+</html>

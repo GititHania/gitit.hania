@@ -1,18 +1,18 @@
-from os import name
 import flask as f
 import datetime
-
-from flask import sessions
-from werkzeug.utils import redirect
+from pages.ex10.ex10 import assignment10
 
 app = f.Flask(__name__)
+app.config.from_pyfile('settings.py')
 app.secret_key = '111'
+app.register_blueprint(assignment10)
+
 
 @app.route('/')
 def home():
-    if "username" in  f.session:
-        userName =  f.session["username"]
-    else: 
+    if "username" in f.session:
+        userName = f.session["username"]
+    else:
         userName = "Stranger"
     return f"<h1>Wellcome to the home page {userName}!<h1>"
 
@@ -42,11 +42,11 @@ def asg8():
     return f.render_template('assignment8.html', time=datetime.datetime.now().time().hour)
 
 
-users = {'0': {'name': 'Yossi', 'email': 'yo@gmail.com', 'password': '1111'},
-         '1': {'name': 'Kelly', 'email': 'Kel@gmail.com', 'password': '2222'},
-         '2': {'name': 'Ron', 'email': 'Ron@gmail.com', 'password': '3333'},
-         '3': {'name': 'Raz', 'email': 'Raz@gmail.com', 'password': '4444'},
-         '4': {'name': 'Tal', 'email': 'Tal@gmail.com', 'password': '5555'}}
+users = {'0': {'username': 'Yossi', 'email': 'yo@gmail.com', 'password': '1111'},
+         '1': {'username': 'Kelly', 'email': 'Kel@gmail.com', 'password': '2222'},
+         '2': {'username': 'Ron', 'email': 'Ron@gmail.com', 'password': '3333'},
+         '3': {'username': 'Raz', 'email': 'Raz@gmail.com', 'password': '4444'},
+         '4': {'username': 'Tal', 'email': 'Tal@gmail.com', 'password': '5555'}}
 
 
 @app.route('/assignment9', methods=['GET', 'POST'])
@@ -67,20 +67,21 @@ def asg9():
             if not us_name and not us_email:
                 chosen = [users[user] for user in users]
             return f.render_template('assignment9.html', usersList=chosen)
-  
+
     if f.request.method == 'POST':
         username = f.request.form['r-us']
         emai = f.request.form['r-em']
         password = f.request.form['r-pass']
         f.session["username"] = username
         users[len(users)] = {
-            'name': username,
+            'username': username,
             'email': emai,
             'password': password
         }
         return f.render_template('assignment9.html')
 
     return f.render_template('assignment9.html')
+
 
 
 @app.route('/logout')

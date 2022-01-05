@@ -6,7 +6,7 @@
 {% block content %}
 <div>
     <h1>Search Users</h1>
-    <form action="" method="">
+    <form action="" method="get">
         <label for="s-us">User Name</label>
         <input type="text" name="s-us" id="s-us"><br>
         <label for="s-em">User Email</label>
@@ -20,7 +20,7 @@
         {%if usersList%}
         {%for user in usersList%}
         <li>
-            <span>Name: {{user['name']}}</span>
+            <span>Name: {{user['username']}}</span>
             <span>,</span>
             <span>Email: {{user['email']}}</span>
         </li>

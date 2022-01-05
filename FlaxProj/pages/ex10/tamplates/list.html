@@ -1,0 +1,12 @@
+<h3>Users List </h3>
+
+
+{%if usersList%}
+{%for user in usersList%}
+<li>
+    <span>Name: {{usersList[user]['username']}}</span>
+    <span>, </span>
+    <span>Email: {{usersList[user]['email']}}</span>
+</li>
+{%endfor%}
+{%endif%}

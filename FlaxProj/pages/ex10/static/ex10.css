@@ -1,0 +1,35 @@
+body {
+    font-weight: bolder;
+}
+
+h1{
+    text-align: center;
+    color: cornflowerblue;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-row: auto;
+    gap: 2vw;
+}
+
+.inform {
+    grid-column: 2;
+    background-color: aqua;
+    border: 3px solid darkblue;
+    padding: 2%;
+    margin: 2%;
+    text-align: center;
+}
+
+button{
+    background-color: rgb(110, 10, 240);
+    border: none;
+    margin: 1%;
+}
+
+input {
+    margin: 2%;
+}
+
