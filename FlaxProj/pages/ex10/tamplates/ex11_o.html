@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        var users = []
+
+        fetch('https://reqres.in/api/users')
+        .then(response => response.json())
+        .then(responseJSON => {users = responseJSON.data})
+        .catch(err => console.log(err));
+
+        function printUsers() {
+            id = document.getElementById('frontId').value;
+            selected = []
+
+            for (var i = 0; i < users.length; i++) {
+                if (users[i]['id'] == id) {
+                    selected = users[i]
+                }
+            }
+            if (selected['first_name'] ) { 
+                console.log(selected)
+                name = "Name: " + selected['first_name'] + " " + selected['last_name'];
+                email = "<br>  Email: " + selected['email'] ;
+                avatar = "<br> <img src='"+selected['avatar']+"' alt='Avater'>";
+                userInfo = name + email + avatar;
+            } else {
+                userInfo = "User Not Exist"
+            }
+            
+        
+            document.getElementById('userFront').innerHTML = userInfo
+
+        }
+    </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Search Front</h1>
+    <input type="number" name="frontId" id="frontId">
+    <button onclick="printUsers()">Search</button>
+    <div id='userFront'>
+
+    </div>
+    <form method="get">
+        <h1>Search Back</h1>
+        <input type="number" name="backId" id="">
+        <button type="submit">Search</button>
+        <div>
+            {% if  selected%}
+            <span>Name: {{selected['first_name']}} {{selected['last_name']}} </span>
+            <br>
+            <span>Email: {{selected['email']}}</span>
+            <br>
+            <img src="{{selected['avatar']}}" alt="Avater">
+            {% endif %}
+        </div>
+    </form>
+</body>
+
+</html>
