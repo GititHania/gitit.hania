@@ -1,3 +1,4 @@
+from distutils.log import error
 import flask as f
 from inter_db import inter_db
 import requests
@@ -98,3 +99,25 @@ def ex11_o():
             return f.render_template('ex11_o.html', selected = user['data'])
 
     return f.render_template('ex11_o.html')
+
+@assignment10.route('/assignment12/restapi_users/')
+def default_user():
+    return f.redirect('/assignment12/restapi_users/1')
+    
+@assignment10.route('/assignment12/restapi_users/<int:UserId>/')
+def ex12(UserId):
+    res = requests.get('https://reqres.in/api/users/'+ str(UserId))
+    user = res.json()
+    if ('data' in user):
+        return f.render_template('ex12.html', selected = user['data'])
+    else:
+        error = {
+            'Success': False,
+            'Error': {
+                'Reason': 'UserId not found', 
+                'Message': "Requested user with Id "+str(UserId)+" wasn't found in the DB"
+            },
+            'Code' : 404, 
+            'Message': "Not found"
+        }
+        return f.render_template('ex12.html', selected = error)
